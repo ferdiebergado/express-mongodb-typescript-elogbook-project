@@ -13,7 +13,7 @@ export class HttpException extends Error {
 
 export class NotFoundException extends HttpException {
   constructor(public message: string = messages.notFound) {
-    super(404, messages.notFound)
+    super(404, message)
   }
 }
 
