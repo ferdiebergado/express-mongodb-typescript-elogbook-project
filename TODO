@@ -1,6 +1,6 @@
 - async logging to file
 - centralized configurations
-- use index files
+- *use index files
 - validate jwt token (route->token correspondence)
 - create services
 - use debug module for logging
