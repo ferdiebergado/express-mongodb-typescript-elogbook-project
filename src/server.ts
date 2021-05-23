@@ -1,9 +1,8 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable node/no-missing-import */
-/* eslint-disable node/file-extension-in-import */
 /* eslint-disable node/no-unsupported-features/es-syntax */
 import app from './app'
-import { client } from './lib/utils/db'
+import { client } from './lib/db'
 
 const PORT = process.env.PORT || 1995
 const SIGTERM = 'SIGTERM'
