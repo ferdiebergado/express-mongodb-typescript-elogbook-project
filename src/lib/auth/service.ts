@@ -14,6 +14,7 @@ import {
   ValidationErrors,
   ResetPasswordData,
   LoginCreds,
+  AuthService,
 } from '../types'
 import { makeUserEntity, User } from '../../app/user/user'
 import { compare, hash } from '../utils/hash'
@@ -21,9 +22,12 @@ import EventEmitter from '../utils/event'
 import { generateToken } from '../utils/jwt'
 import { InputValidationException } from '../exceptions/validation'
 import { isEmail } from '../utils/validation'
+import dispatchListeners from './listener'
+
+dispatchListeners()
 
 export const buildMakeAuthService = (userRepository: BaseRepository) => {
-  return (): any => {
+  return (): AuthService => {
     const register = async (newUser: UserDto): Promise<string> => {
       const {
         lastName,

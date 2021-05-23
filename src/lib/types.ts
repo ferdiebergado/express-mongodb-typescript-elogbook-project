@@ -1,6 +1,6 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable node/no-unsupported-features/es-syntax */
-import {Request, Response, NextFunction} from 'express'
+import { Request, Response, NextFunction } from 'express'
 
 export type AsyncHttpFunction = (
   req: Request,
@@ -105,7 +105,15 @@ export interface ResetPasswordData {
 }
 
 export interface ClientData {
-  formData: any,
-  ip: string | undefined,
+  formData: any
+  ip: string | undefined
   userAgent: string | undefined
+}
+
+export interface AuthService {
+  register(userDto: UserDto): Promise<string>
+  login(creds: LoginCreds): Promise<string>
+  verify(id: string): Promise<void>
+  forgotPassword(email: string): Promise<void>
+  resetPassword(id: string, data: ResetPasswordData): Promise<void>
 }
