@@ -2,16 +2,16 @@
 /* eslint-disable node/file-extension-in-import */
 /* eslint-disable node/no-missing-import */
 /* eslint-disable node/no-unsupported-features/es-syntax */
-import {JwtPayload} from '../types'
+import { JwtPayload } from '../types'
 import EventEmitter from '../utils/event'
 import sendEmail from '../utils/mailer'
-import {generateToken} from '../utils/jwt'
-import {app} from '../../config'
-import {User} from '../../app/user/user'
+import { generateToken } from '../utils/jwt'
+import { app } from '../../config'
+import { User } from '../../app/user/user'
 
 const HOST = app.APP_HOST
 
-export default (() => {
+export default (): void => {
   EventEmitter.on('user:registered', async (user: User) => {
     const route = '/auth/verify'
     const payload: JwtPayload = {
@@ -68,4 +68,4 @@ export default (() => {
       )
     })
   })
-})()
+}
