@@ -1,0 +1,34 @@
+{
+    "configurations": {
+        "run": {
+            "adapter": "vscode-node",
+            "configuration": {
+                "request": "launch",
+                "protocol": "auto",
+                "stopOnEntry": true,
+                "console": "integratedTerminal",
+                "program": "${workspaceRoot}/dist/server.js",
+                "cwd": "${workspaceRoot}/dist"
+            }
+        },
+        "attach": {
+            "adapter": "vscode-node",
+            "default": true,
+            "breakpoints": {
+                "exception": {
+                    "all": "N",
+                    "uncaught": "N"
+                }
+            },
+            "configuration": {
+                "name": "Attach to Process",
+                "type": "node",
+                "request": "attach",
+                "skipFiles": [
+                    "<node_internals>/**/*.js"
+                ],
+                "processId": "${processId}"
+            }
+        }
+    }
+}

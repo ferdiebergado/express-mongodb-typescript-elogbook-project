@@ -1,0 +1,11 @@
+- async logging to file
+- centralized configurations
+- use index files
+- validate jwt token (route->token correspondence)
+- create services
+- use debug module for logging
+- reinstall validation middleware
+- validate jwt client id, ip, user agent
+- assert request headers 
+- throw ResourceNotFoundException when entity does not exist
+- 
