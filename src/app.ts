@@ -5,13 +5,10 @@
 import './lib/utils/env'
 import express from 'express'
 import cookieParser from 'cookie-parser'
-import logger from './lib/middlewares/logger'
-import notfound from './lib/middlewares/notfound'
-import errorHandler from './lib/middlewares/error'
+import { logger, notfound, error as errorHandler } from './lib/middlewares'
 import './lib/auth/listener'
 import authRoutes from './lib/auth/routes'
-import {app as appConfig} from './config'
-import parseClientData from './lib/middlewares/client'
+import { app as appConfig } from './config'
 // import documentRoutes from "./app/document/route";
 
 const app = express()
@@ -22,7 +19,6 @@ app.use(logger)
 app.use(cookieParser(appConfig.APP_KEY))
 app.use(express.json())
 app.get('/favicon.ico', (_req, res) => res.status(204).end())
-app.use(parseClientData)
 app.use('/auth', authRoutes)
 //app.use("/documents", documentRoutes);
 app.use(notfound)
