@@ -7,5 +7,6 @@ import error from './error'
 import logger from './logger'
 import notfound from './notfound'
 import verifyToken from './verifier'
+import asyncHandler from './asyncHandler'
 
-export { auth, error, logger, notfound, verifyToken }
+export { auth, error, logger, notfound, verifyToken, asyncHandler }
